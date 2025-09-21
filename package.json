@@ -1,0 +1,13 @@
+{
+  "name": "traveling-plan",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:win": "concurrently -n WEB,API,PY -c blue,green,magenta \"npm run dev --prefix frontend/web\" \"npm run dev --prefix backend/api\" \"powershell -NoProfile -ExecutionPolicy Bypass -File backend/mcp-py/run.ps1\"",
+    "dev:win:all": "concurrently -n WEB,API,PY,TS -c blue,green,magenta,yellow \"npm run dev --prefix frontend/web\" \"npm run dev --prefix backend/api\" \"powershell -NoProfile -ExecutionPolicy Bypass -File backend/mcp-py/run.ps1\" \"npm run dev --prefix backend/mcp-ts\"",
+    "dev:unix": "concurrently -n WEB,API,PY -c blue,green,magenta \"npm run dev --prefix frontend/web\" \"npm run dev --prefix backend/api\" \"bash backend/mcp-py/run.sh\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
